@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <Navbar />
+      
       <div 
       className="relative mb-10 bg-cover bg-center bg-no-repeat h-[600px] "
       style={{ backgroundImage: "url('/images/hero-background.jpg')" }}>

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { FaShoppingCart } from 'react-icons/fa'
 const Navbar = () => {
   return (
     <nav className=' text-white py-4 px-8 w-full flex items-center z-50 opacity-70 bg-black fixed'>
@@ -10,6 +10,7 @@ const Navbar = () => {
             <li><a href="#about" className="hover:text-cyan-400">About</a></li>
             <li><a href="#contact" className="hover:text-cyan-400">Contact</a></li>
         </ul>
+       <a href="/cart"><FaShoppingCart size={40}/></a>
     </nav>
   )
 }

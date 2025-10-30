@@ -1,6 +1,26 @@
-import React from 'react'
+"use client";
+
+import React from "react";
 import menuList from '@/data/info'
+
 const MenuCard = ({title, description, img, price}) => {
+   
+  const AddToCart = () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const existingItem = cart.find((item) => item.title === title)
+
+    if(existingItem){
+        existingItem.quantity += 1;
+    }else{
+        cart.push({title, description, img, price, quantity: 1});
+    }
+
+    alert('Item added to cart')
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    
+  }
   return (
     <div className=' border-white shadow-2xl rounded-2xl w-full bg-black overflow-hidden'>
         <img
@@ -9,10 +29,11 @@ const MenuCard = ({title, description, img, price}) => {
         className='w-full h-60 object-cover'>
         </img>
         <div className='text-white m-4'> 
-            <div className='flex justify-between items-center mb-4'>
+            <div className='flex justify-between items-center mb-1'>
                 <h1 className='font-bold text-2xl'>{title}</h1>
-                <p className='text-lg text-cyan-400 font-semibold'>{price}</p>
+                <p className='text-lg text-cyan-400 font-semibold'>${price}</p>
             </div>
+            <button onClick={AddToCart} className='text-blue-700 mb-2'>Add to shopping Cart</button>
             <p className='text-gray-400'>{description}</p>
         </div>
     </div>
